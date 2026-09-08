@@ -15,9 +15,9 @@ A lightweight shell wrapper for `kdedimmer` on **KDE Plasma 6 (Wayland)** provid
 
 ## 📦 Prerequisites
 
-1. **kdedimmer:** Make sure `kdedimmer` is installed from the AUR:
+1. **kdedimmer:** Make sure `kdedimmer` is installed (available in AUR for Arch/CachyOS users):
 ```bash
-paru -S kdedimmer
+paru -S kdedimmer # or yay -S kdedimmer
 ```
 
 2. **Qt6 DBus Utilities:** `qdbus6` (standard in KDE Plasma 6 installations):
