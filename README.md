@@ -15,9 +15,9 @@ A lightweight shell wrapper for `kdedimmer` on **KDE Plasma 6 (Wayland)** provid
 
 ## 📦 Prerequisites
 
-1. **kdedimmer:** Make sure `kdedimmer` is installed (available in AUR for Arch/CachyOS users):
+1. **kdedimmer:** Make sure `kdedimmer` is installed from the AUR:
 ```bash
-yay -S kdedimmer # or paru -S kdedimmer
+paru -S kdedimmer
 ```
 
 2. **Qt6 DBus Utilities:** `qdbus6` (standard in KDE Plasma 6 installations):
@@ -33,10 +33,10 @@ Execute the script with one of the following arguments:
 
 ```bash
 # Increase dimming by 5% (Darker)
-./kdedimmer-control.sh more   # or down
+./kdedimmer-control.sh more   # or "down"
 
 # Decrease dimming by 5% (Brighter)
-./kdedimmer-control.sh less   # or up
+./kdedimmer-control.sh less   # or "up"
 
 # Turn off dimming completely
 ./kdedimmer-control.sh off
