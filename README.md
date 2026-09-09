@@ -37,13 +37,35 @@ If `paru` is not available, use another trusted AUR helper such as `yay`, or ins
 
 ## Installation
 
-Clone or download the repository, then make the controller executable:
+Clone or download the repository, then install the controller for the current user:
 
 ```bash
-chmod +x kdedimmer-control.sh
+mkdir -p ~/.local/bin
+cp /path/to/kdedimmer-control.sh ~/.local/bin/kdedimmer-control.sh
+chmod +x ~/.local/bin/kdedimmer-control.sh
 ```
 
-No root permission is required to run the controller. Do not install it into a system directory unless you understand the ownership and update implications.
+Replace `/path/to/kdedimmer-control.sh` with the path to the script in your checkout. For example:
+
+```bash
+cp /path/to/kde-screen-dimmer/kdedimmer-control.sh ~/.local/bin/kdedimmer-control.sh
+```
+
+Add the installation directory to `PATH` for Zsh:
+
+```bash
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+Verify the installation:
+
+```bash
+command -v kdedimmer-control.sh
+kdedimmer-control.sh down
+```
+
+No root permission is required to run or install the controller. Do not install it into a system directory unless you understand the ownership and update implications.
 
 ## Configuration
 
@@ -75,15 +97,20 @@ Invalid actions and missing dependencies produce an error and a non-zero exit st
 
 ## KDE Plasma shortcut setup
 
-Go to **System Settings** -> **Shortcuts** -> **Add New** -> **Command**:
+Go to **System Settings** -> **Shortcuts** -> **Add New** -> **Command** and create these two commands:
 
-| Action | Shortcut (Example) | Command |
+| Action | Shortcut | Command |
 | :--- | :--- | :--- |
-| **Dim Screen** | `Ctrl + Alt + Down` | `/path/to/kdedimmer-control.sh down` |
-| **Brighten Screen** | `Ctrl + Alt + Up` | `/path/to/kdedimmer-control.sh up` |
-| **Turn Off Dimmer** | `Ctrl + Alt + End` | `/path/to/kdedimmer-control.sh off` |
+| **Dim Screen** | `Ctrl + Shift + Left` | `~/.local/bin/kdedimmer-control.sh down` |
+| **Brighten Screen** | `Ctrl + Shift + Right` | `~/.local/bin/kdedimmer-control.sh up` |
 
-Use the actual path to your checkout in the commands above; `/path/to/kdedimmer-control.sh` is intentionally only a placeholder.
+The controller can also be turned off manually:
+
+```bash
+~/.local/bin/kdedimmer-control.sh off
+```
+
+If KDE does not expand `~` in a shortcut command, use the absolute path to the installed script, for example `/home/your-user/.local/bin/kdedimmer-control.sh`.
 
 ## Troubleshooting
 
