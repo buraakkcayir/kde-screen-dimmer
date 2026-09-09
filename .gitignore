@@ -1,2 +1,8 @@
 .DS_Store
 *.swp
+
+# Local editor and runtime artifacts
+.idea/
+.vscode/
+*.log
+kdedimmer_state
